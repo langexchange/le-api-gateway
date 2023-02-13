@@ -1,0 +1,69 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/v1/files/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "ServiceName": "uploader",
+      "UpstreamPathTemplate": "/upload/{id}",
+      "UpstreamHttpMethod": [ "POST" ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/files/url",
+      "DownstreamScheme": "http",
+      "ServiceName": "uploader",
+      "UpstreamPathTemplate": "/files/url",
+      "UpstreamHttpMethod": [ "GET" ],
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    //{
+    //  "DownstreamPathTemplate": "/api/v{apiVersion}/upload/{everything}",
+    //  "DownstreamScheme": "http",
+    //  "ServiceName": "uploader",
+    //  "UpstreamPathTemplate": "/v{apiVersion}/upload/{everything}",
+    //  "UpstreamHttpMethod": [ "Get" ],
+    //  "LoadBalancerOptions": {
+    //    "Type": "LeastConnection"
+    //  },
+    //  "RateLimitOptions": {
+    //    "ClientWhitelist": [],
+    //    "EnableRateLimiting": false,
+    //    "Period": "1m",
+    //    "PeriodTimespan": 1,
+    //    "Limit": 20
+    //  }
+    //}
+  ]
+}
