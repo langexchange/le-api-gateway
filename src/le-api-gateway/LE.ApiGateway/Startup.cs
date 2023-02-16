@@ -56,7 +56,7 @@ namespace LE.ApiGateway
                 app.UseDeveloperExceptionPage();
             }
             app.UseRouting();
-            //app.UseCustomAuthorization();
+            app.UseCustomAuthorization();
             app.UseHealthCheck("/");
             app.RunSwaggerUI();
             app.UseStaticFiles();

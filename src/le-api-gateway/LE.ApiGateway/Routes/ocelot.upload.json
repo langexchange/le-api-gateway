@@ -33,10 +33,10 @@
       "ServiceName": "uploader",
       "UpstreamPathTemplate": "/files/url",
       "UpstreamHttpMethod": [ "GET" ],
-      //"AuthenticationOptions": {
-      //  "AuthenticationProviderKey": "Bearer",
-      //  "AllowedScopes": []
-      //},
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
