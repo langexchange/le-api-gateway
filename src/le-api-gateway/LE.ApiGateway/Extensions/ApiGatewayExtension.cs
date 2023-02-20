@@ -57,7 +57,7 @@ namespace LE.ApiGateway.Extensions
             if (swaggerConfig?.Enable == true)
             {
                 services.AddSingleton(swaggerConfig);
-                services.AddSwashbuckle();
+                //services.AddSwashbuckle();
             }
 
             return services;
