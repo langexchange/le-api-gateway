@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["LE.ApiGatewayLE.ApiGateway.csproj", "LE.ApiGateway/"]
+COPY ["LE.ApiGateway/LE.ApiGateway.csproj", "LE.ApiGateway/"]
 RUN dotnet restore "LE.ApiGateway/LE.ApiGateway.csproj"
 COPY ./ ./
 
