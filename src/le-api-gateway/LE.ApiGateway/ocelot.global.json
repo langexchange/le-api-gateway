@@ -2,7 +2,8 @@
   "GlobalConfiguration": {
     "ServiceDiscoveryProvider": {
       //"Host": "localhost",
-      "Host": "host.docker.internal",
+      //"Host": "host.docker.internal",
+      "Host": "http://consul",
       "Port": 8500,
       "Type": "Consul"
     }
