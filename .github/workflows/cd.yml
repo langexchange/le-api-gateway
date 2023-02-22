@@ -51,4 +51,5 @@ jobs:
           script_stop: true
           script: |
             cd ~/docker-compose/
+            chmod +x deploy-api-gateway.sh
             ./deploy-api-gateway.sh
