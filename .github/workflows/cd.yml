@@ -49,11 +49,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SECRET_KEY }}
           script_stop: true
-          # script: |
-          #   cd ~/techshop/website/
-          #   ./deploy.sh
-          envs: FOO,BAR,SHA
           script: |
-            echo "I am $FOO"
-            echo "I am $BAR"
-            echo "sha: $SHA"
+            cd ~/docker-compose/
+            ./deploy-api-gateway.sh
