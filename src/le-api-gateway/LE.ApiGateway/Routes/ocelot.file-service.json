@@ -3,12 +3,6 @@
     {
       "DownstreamPathTemplate": "/api/files/users/{id}/types/{type}",
       "DownstreamScheme": "http",
-      //"DownstreamHostAndPorts": [
-      //  {
-      //    "Host": "localhost",
-      //    "Port": 5000
-      //  }
-      //],
       "ServiceName": "file-service",
       "UpstreamPathTemplate": "/api/files/users/{id}/types/{type}",
       "UpstreamHttpMethod": [ "POST" ],
