@@ -1,10 +1,10 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/auth/register",
+      "DownstreamPathTemplate": "/api/auth/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
-      "UpstreamPathTemplate": "/api/auth/register",
+      "UpstreamPathTemplate": "/api/auth/{everything}",
       "UpstreamHttpMethod": [ "POST" ],
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
