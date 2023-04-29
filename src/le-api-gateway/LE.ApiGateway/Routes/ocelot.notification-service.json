@@ -1,10 +1,10 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/hangfire",
+      "DownstreamPathTemplate": "/hangfire/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "notification-service",
-      "UpstreamPathTemplate": "/hangfire",
+      "UpstreamPathTemplate": "/hangfire/{everything}",
       "UpstreamHttpMethod": [ "POST", "GET" ],
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
