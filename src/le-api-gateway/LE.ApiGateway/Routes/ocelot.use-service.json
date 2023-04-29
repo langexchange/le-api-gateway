@@ -18,6 +18,27 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": [ "POST", "Get", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/users/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
@@ -81,11 +102,53 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/friends",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/friends",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/friends/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
       "UpstreamPathTemplate": "/api/friends/{everything}",
       "UpstreamHttpMethod": [ "POST", "Get", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/vocabularies",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/vocabularies",
+      "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
