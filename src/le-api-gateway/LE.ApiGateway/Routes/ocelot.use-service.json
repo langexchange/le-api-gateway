@@ -102,6 +102,27 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/friends",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/friends",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/friends/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
