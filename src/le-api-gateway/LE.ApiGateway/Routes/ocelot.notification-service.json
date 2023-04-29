@@ -18,10 +18,27 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/{url}",
+      "DownstreamPathTemplate": "/hub/notification",
       "DownstreamScheme": "http",
       "ServiceName": "notification-service",
-      "UpstreamPathTemplate": "/{url}",
+      "UpstreamPathTemplate": "/hub/notification",
+      "UpstreamHttpMethod": [ "POST", "GET" ],
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/notifications/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "notification-service",
+      "UpstreamPathTemplate": "/api/notifications/{everything}",
       "UpstreamHttpMethod": [ "POST", "GET" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
