@@ -38,18 +38,14 @@ jobs:
         run: |
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-      - name: Deploy new version to host via ssh command
-        uses: appleboy/ssh-action@master
-        env:
-          FOO: "BAR"
-          BAR: "FOO"
-          SHA: ${{ github.sha }}
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USERNAME }}
-          key: ${{ secrets.SECRET_KEY }}
-          script_stop: true
-          script: |
-            cd ~/docker-compose/
-            chmod +x deploy-api-gateway.sh
-            ./deploy-api-gateway.sh
+      # - name: Deploy new version to host via ssh command
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.EC2_HOST }}
+      #     username: ${{ secrets.EC2_USERNAME }}
+      #     key: ${{ secrets.SECRET_KEY }}
+      #     script_stop: true
+      #     script: |
+      #       cd ~/docker-compose/
+      #       chmod +x deploy-api-gateway.sh
+      #       ./deploy-api-gateway.sh
