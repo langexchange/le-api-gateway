@@ -37,8 +37,6 @@ namespace LE.ApiGateway
             });
 
             services.AddCustomAuthorization(Configuration);
-            //services.AddCustomApiVersioning();
-            //services.AddSwagger(Configuration);
             services.AddOcelot(Configuration)
                 .AddConsul();
         }
@@ -53,7 +51,7 @@ namespace LE.ApiGateway
             app.UseRouting();
             app.UseCustomAuthorization();
             app.UseHealthCheck("/");
-            app.RunSwaggerUI();
+            //app.RunSwaggerUI();
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
             app.UseWebSockets();
