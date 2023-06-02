@@ -44,10 +44,10 @@
       "ServiceName": "user-service",
       "UpstreamPathTemplate": "/api/users/{everything}",
       "UpstreamHttpMethod": [ "POST", "Get", "PUT", "DELETE" ],
-      "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
-      },
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      //},
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
