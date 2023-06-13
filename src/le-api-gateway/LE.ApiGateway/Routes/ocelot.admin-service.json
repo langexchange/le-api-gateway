@@ -3,14 +3,50 @@
     {
       "DownstreamPathTemplate": "/admin/api/settings",
       "DownstreamScheme": "http",
-      //"ServiceName": "file-service",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5005
-        }
-      ],
+      "ServiceName": "admin-service",
       "UpstreamPathTemplate": "/admin/api/settings",
+      "UpstreamHttpMethod": [ "PUT", "GET" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/admin/api/settings/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "admin-service",
+      "UpstreamPathTemplate": "/admin/api/settings/{everything}",
+      "UpstreamHttpMethod": [ "PUT", "GET", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/admin/api/users",
+      "DownstreamScheme": "http",
+      "ServiceName": "admin-service",
+      "UpstreamPathTemplate": "/admin/api/users",
       "UpstreamHttpMethod": [ "GET" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
@@ -25,9 +61,27 @@
         "Period": "1m",
         "PeriodTimespan": 1,
         "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/admin/api/users/{everything}",
+      "DownstreamScheme": "http",
+      "ServiceName": "admin-service",
+      "UpstreamPathTemplate": "/admin/api/users/{everything}",
+      "UpstreamHttpMethod": [ "PUT", "GET", "POST", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
       },
-      "RouteClaimsRequirement": {
-        "typ": "customer"
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
       }
     }
   ]
