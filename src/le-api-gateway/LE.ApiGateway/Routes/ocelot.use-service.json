@@ -39,6 +39,23 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/cookies",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/cookies",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/cookies/{everything}",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
@@ -119,6 +136,27 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/statistics/learning-process",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/statistics/learning-process",
+      "UpstreamHttpMethod": [ "Get" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/friends",
       "DownstreamScheme": "http",
       "ServiceName": "user-service",
@@ -128,6 +166,23 @@
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": false,
+        "Period": "1m",
+        "PeriodTimespan": 1,
+        "Limit": 20
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/languages",
+      "DownstreamScheme": "http",
+      "ServiceName": "user-service",
+      "UpstreamPathTemplate": "/api/languages",
+      "UpstreamHttpMethod": [ "POST", "Get", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
