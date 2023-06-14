@@ -52,10 +52,10 @@
       }
     },
     {
-      "DownstreamPathTemplate": "/api/notifications/{everything}",
+      "DownstreamPathTemplate": "/api/notifications",
       "DownstreamScheme": "http",
       "ServiceName": "notification-service",
-      "UpstreamPathTemplate": "/api/notifications/{everything}",
+      "UpstreamPathTemplate": "/api/notifications",
       "UpstreamHttpMethod": [ "POST", "GET" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
